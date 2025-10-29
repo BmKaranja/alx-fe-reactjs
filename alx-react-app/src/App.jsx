@@ -6,7 +6,7 @@ import WelcomeMessage from './components/WelcomeMessage.jsx'
 import Header from './components/Header.jsx'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'
-
+import UserProfile from './components/UserProfile.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +22,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
