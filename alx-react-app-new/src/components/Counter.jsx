@@ -1,26 +1,16 @@
 import React,{useState} from 'react'
+function Counter() {
+     const [count, setCount] = useState(0);
 
-const Counter = () => {
-    const [count, setCount]=useState(0)
-    function increase(){
-        setCount(count+1)
-    }
-    function decrease(){
-        setCount(count-1)
-    }
-    function reset(){
-        setCount(0)
-    }
-  return (
-    <div>
-      <p>You pressed the button {count} times!</p>  
-      <button onClick={increase}>Increament</button>
-      <br></br>
-      <button onClick={decrease}>Decreament</button>
-      <br></br>
-      <button onClick={reset}>Reset</button>
-    </div>
-  )
-}
+     return (
+       <div>
+         <p>Current Count: {count}</p>
+         <button onClick={() => setCount(count + 1)}>Increment</button>
+         <button onClick={() => setCount(count - 1)}>Decrement</button>
+         <button onClick={() => setCount(0)}>Reset</button>
+       </div>
+     );
+   }
+
 
 export default Counter
