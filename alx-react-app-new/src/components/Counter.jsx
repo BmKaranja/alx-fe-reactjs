@@ -14,9 +14,9 @@ const Counter = () => {
   return (
     <div>
       <p>You pressed the button {count} times!</p>  
-      <button onClick={increase}>Increase</button>
+      <button onClick={increase}>Increament</button>
       <br></br>
-      <button onClick={decrease}>Decrease</button>
+      <button onClick={decrease}>Decreament</button>
       <br></br>
       <button onClick={reset}>Reset</button>
     </div>
