@@ -16,7 +16,7 @@ function App() {
       <WelcomeMessage />
       <UserContext.Provider value={userData}>
       <ProfilePage />
-    </UserContext.Provider>
+      </UserContext.Provider>
       <MainContent />
       <Footer />
     </>
