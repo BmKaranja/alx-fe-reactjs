@@ -1,10 +1,11 @@
-function UserDetails({ userData }) {
+import React from 'react'
+const DataContext=React.createContext()
+const UserContext = () => {
   return (
     <div>
-      <p>Name: {userData.name}</p>
-      <p>Email: {userData.email}</p>
+      
     </div>
-  );
+  )
 }
 
-export default UserDetails;
+export default UserContext
