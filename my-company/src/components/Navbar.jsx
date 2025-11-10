@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Navigation(){
   return (
     <div>
         <nav>
             <ul>
-                <Link to ="Home.jsx">Home</Link>
-                <Link to ="About.jsx">About</Link>
-                <Link to ="Service.jsx">Service</Link>
-                <Link to ="Contact.jsx">Contact</Link>
+                <Link to="/">Home</Link>
+                <Link to="/About">About</Link>
+                <Link to="/Service">Service</Link>
+                <Link to="/Contact">Contact</Link>
             </ul>
         </nav>
 
