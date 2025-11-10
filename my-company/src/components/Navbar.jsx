@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Navigation(){
   return (
     <div>
-        <nav>
+        <nav style ={{backgroundColor: '#f0f0f0', padding: '10px'}}>
             <ul>
                 <Link to="/">Home</Link>
                 <Link to="/About">About</Link>
