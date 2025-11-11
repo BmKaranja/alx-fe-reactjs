@@ -1,0 +1,2 @@
+- [x] Update src/App.jsx to set up routes for RecipeList at '/' and RecipeDetails at '/recipe/:id'
+- [x] Update src/components/RecipeList.jsx to add navigation links to RecipeDetails for each recipe

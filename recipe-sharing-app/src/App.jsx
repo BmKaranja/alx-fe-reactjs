@@ -3,6 +3,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeList from './components/RecipeList'
+import RecipeDetails from './components/RecipeDetails'
+import { Routes, Route } from 'react-router-dom'
+
 function App() {
 
   return (
@@ -15,7 +18,10 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <RecipeList/>
+      <Routes>
+        <Route path="/" element={<RecipeList />} />
+        <Route path="/recipe/:id" element={<RecipeDetails />} />
+      </Routes>
       <AddRecipeForm/>
     </>
   )
