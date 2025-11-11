@@ -12,6 +12,7 @@ const RecipeDetails = () => {
   return (
     <div>
       <h2>{recipe.title}</h2>
+      <h2>{recipe.id}</h2>
       <ul>
         {recipe.ingredients.map((ing, i) => (
           <li key={i}>{ing}</li>
