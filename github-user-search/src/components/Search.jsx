@@ -7,8 +7,7 @@ const Search = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [location, setLocation]= useState(null)  
-
+  const [location, setLocation]= useState('')  
   async function handleSubmit(e) {
     e.preventDefault();
     if (!username.trim()) return;

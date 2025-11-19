@@ -1,3 +1,4 @@
+// githubservice.js
 import axios from "axios";
 
 export async function fetchUserData(username, location) {
@@ -6,8 +7,8 @@ export async function fetchUserData(username, location) {
     const response = await axios.get(
       `https://api.github.com/search/users?q=${username}+location:${location}`
     );
-    // Return the first matching user
-    return response.data.items[0];
+    // Return the first matching user (or null if none)
+    return response.data.items[0] || null;
   } else {
     // Default: fetch by username
     const response = await axios.get(`https://api.github.com/users/${username}`);
