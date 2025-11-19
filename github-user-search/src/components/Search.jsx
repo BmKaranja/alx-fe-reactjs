@@ -7,6 +7,7 @@ const Search = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [location, setLocation]= useState(null)  
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +18,7 @@ const Search = () => {
     setUserData(null);
 
     try {
-      const data = await fetchUserData(username);
+      const data = await fetchUserData(username , location);
       setUserData(data);
     } catch{
       setError("Looks like we can't find the user");
@@ -34,7 +35,8 @@ const Search = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter GitHub username"
-        />
+        /><br></br>
+        <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Enter location"/><br></br>
         <button type="submit">Search</button>
       </form>
 
