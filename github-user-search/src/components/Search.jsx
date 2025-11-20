@@ -1,6 +1,6 @@
 // src/components/Search.js
 import React, { useState } from "react";
-import { searchUsers } from "../services/githubService";
+import { searchUsers } from "../services/githubService1";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -20,7 +20,7 @@ const Search = () => {
     try {
       const data = await searchUsers({ username, location, minRepos, page });
       setResults(data.items);
-    } catch (err) {
+    } catch {
       setError("Looks like we cant find any users");
     } finally {
       setLoading(false);
@@ -33,7 +33,7 @@ const Search = () => {
     try {
       const data = await searchUsers({ username, location, minRepos, page: nextPage });
       setResults((prev) => [...prev, ...data.items]);
-    } catch (err) {
+    } catch {
       setError("Error loading more users");
     }
   };
