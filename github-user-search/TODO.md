@@ -1,0 +1,4 @@
+- [x] Implement basic search in Search.jsx: Use only username input, fetchUserData, display single user (avatar, name, link), update conditionals.
+- [x] Enhance githubService.js: Modify fetchAdvancedUsers to fetch detailed user info (location, public_repos) for each user.
+- [ ] Update Search.jsx for advanced search: Add location and minRepos inputs, use fetchAdvancedUsers, display list with details, add load more functionality.
+- [ ] Test the application by running it.
