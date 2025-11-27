@@ -1,10 +1,8 @@
-# TODO List for Extending Zustand Store and UI
+# TODO: Add Favorites to Zustand Store
 
-- [x] Extend Zustand store in `src/components/recipeStore.js`:
-  - Add `searchTerm` state (initially empty string).
-  - Add `filteredRecipes` state (initially same as `recipes`).
-  - Add `setSearchTerm` action to update `searchTerm`.
-  - Add `filterRecipes` action to compute `filteredRecipes` based on `searchTerm` (filter by title or ingredients, case insensitive).
-
-- [x] Modify RecipeList component to display filteredRecipes instead of recipes.
-- [x] Add a search bar to the UI for updating the search term.
+## Tasks
+- [x] Add `favorites` array to the Zustand store state
+- [x] Implement `addToFavorites` action to add a recipe to favorites
+- [x] Implement `removeFromFavorites` action to remove a recipe from favorites
+- [x] Implement `generateRecommendations` action for optional recommendations based on favorites
+- [x] Test the updated store functionality
