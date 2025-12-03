@@ -14,7 +14,7 @@ function HomePage() {
     <div>
       <section className='recipe-list flex flex-column gap-5 sm:flex-row p-5'>
         {recipes.map((recipe, index) => (
-          <article key={recipe.id || index} className='recipe-card bg-gray-400 rounded-3xl'>
+          <article key={recipe.id || index} className='recipe-card bg-gray-400 rounded-3xl text-amber-100 hover:shadow-purple-50 sm:size-6'>
             <img src={recipe.image} alt={recipe.title} />
             <h2>{recipe.title}</h2>
             <h3>{recipe.summary}</h3>
