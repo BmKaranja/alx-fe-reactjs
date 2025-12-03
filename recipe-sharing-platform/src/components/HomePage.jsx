@@ -18,6 +18,7 @@ function HomePage() {
             <img src={recipe.image} alt={recipe.title} />
             <h2>{recipe.title}</h2>
             <h3>{recipe.summary}</h3>
+            <Link to={`/recipe/${recipe.id}`} className='text-blue-500 underline'>View Recipe</Link>
           </article>
         ))}
       </section>
