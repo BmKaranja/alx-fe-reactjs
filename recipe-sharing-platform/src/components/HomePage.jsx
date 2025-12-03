@@ -12,7 +12,7 @@ function HomePage() {
 
   return (
     <div>
-      <section className='recipe-list grid grid-cols-1 md:grid-cols-3 p-5'>
+      <section className='recipe-list grid grid-cols-1 md:grid-cols-2 p-5'>
         {recipes.map((recipe, index) => (
           <article key={recipe.id || index} className='recipe-card bg-gray-400 rounded-3xl text-amber-100 hover:shadow-purple-50 sm:size-6'>
             <img src={recipe.image} alt={recipe.title} />
