@@ -1,15 +1,18 @@
 // src/components/PostsComponent.jsx
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const fetchPosts = async () => {
-  const { data } = await axios.get("https://jsonplaceholder.typicode.com/posts");
+const fetchPosts = async (page = 1) => {
+  const { data } = await axios.get(
+    `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`
+  );
   return data;
 };
 
 const PostsComponent = () => {
-  // useQuery manages fetching, caching, and updating
+  const [page, setPage] = useState(1);
+
   const {
     data: posts,
     isLoading,
@@ -18,10 +21,12 @@ const PostsComponent = () => {
     refetch,
     isFetching,
   } = useQuery({
-    queryKey: ["posts"], // cache key
-    queryFn: fetchPosts,
-    staleTime: 1000 * 60 * 5, // 5 minutes: data stays fresh in cache
-    cacheTime: 1000 * 60 * 10, // 10 minutes: cache persists even if unused
+    queryKey: ["posts", page],
+    queryFn: () => fetchPosts(page),
+    staleTime: 1000 * 60 * 5, // 5 minutes
+    cacheTime: 1000 * 60 * 10, // 10 minutes
+    refetchOnWindowFocus: true, // auto-refetch when window regains focus
+    keepPreviousData: true, // keep old data while fetching new page
   });
 
   if (isLoading) return <p>Loading posts...</p>;
@@ -29,19 +34,29 @@ const PostsComponent = () => {
 
   return (
     <div className="posts-component">
-      <h2>Posts</h2>
+      <h2>Posts (Page {page})</h2>
       <button onClick={() => refetch()} disabled={isFetching}>
         {isFetching ? "Refreshing..." : "Refetch Posts"}
       </button>
 
       <ul>
-        {posts.slice(0, 10).map((post) => (
+        {posts?.map((post) => (
           <li key={post.id}>
             <strong>{post.title}</strong>
             <p>{post.body}</p>
           </li>
         ))}
       </ul>
+
+      <div style={{ marginTop: "1rem" }}>
+        <button
+          onClick={() => setPage((old) => Math.max(old - 1, 1))}
+          disabled={page === 1}
+        >
+          Previous Page
+        </button>
+        <button onClick={() => setPage((old) => old + 1)}>Next Page</button>
+      </div>
     </div>
   );
 };
